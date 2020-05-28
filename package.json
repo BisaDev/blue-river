@@ -41,6 +41,7 @@
   "dependencies": {
     "@hot-loader/react-dom": "^16.13.0",
     "foundation-sites": "^6.6.3",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1"
   }
 }

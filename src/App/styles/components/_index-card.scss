@@ -1,0 +1,65 @@
+.index-card {
+  margin-bottom: 40px;
+
+  .zone-display {
+    padding-top: 25px;
+    margin-bottom: 25px;
+    border-top: 1px solid #999999;
+    text-transform: capitalize;
+  }
+
+  .card-item-group {
+    max-height: 220px;
+    display: inline-flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+
+    .card-item {
+      width: 14.2vw;
+      font-size: 13px;
+      margin-right: 16%;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+      float: left;
+
+    }
+
+  }
+
+  @include breakpoint(large only) {
+    .card-item-group {
+      max-height: 350px;
+
+      .card-item {
+        width: 23vw
+
+      }
+    }
+  }
+
+
+
+  @include breakpoint(medium only) {
+    .card-item-group {
+      max-height: 370px;
+
+      .card-item {
+        width: 27vw;
+
+      }
+    }
+  }
+
+  @include breakpoint(small only) {
+    .card-item-group {
+      max-height: 50px;
+
+      .card-item {
+        width: 40vw;
+
+      }
+    }
+  }
+
+
+}
