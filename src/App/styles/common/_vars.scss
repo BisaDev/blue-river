@@ -1,0 +1,48 @@
+$asset-path: "/static/";
+$image-path: $asset-path + "images/";
+$font-path: $asset-path + "fonts/";
+
+$white: #ffffff;
+$light-grey: #f7f7f6;
+$alt-light-grey: #f6f6f6;
+$clay: #e7e6e1;
+$forest: #6c9f87;
+$green: #52b989;
+$mint: #6fe6ae;
+$turquoise: #06c0c9;
+$neon-blue: #00dee8;
+$blue: #00b3ec;
+$olive: #7e732d;
+$yellow: #fff200;
+$gold: #ffc200;
+$peach: #f2ae89;
+$vermillion: #e7461a;
+$red: #e2004a;
+$pink: #f8a4d7;
+$neon-pink: #ff5ee5;
+$black: #1a1717;
+$dark-grey: #333333;
+$aubergine: #380a14;
+$red: #e2004a;
+
+$font-noah: "Noah", Helvetica, sans-serif;
+$font-cormorant: "Cormorant", Helvetica, sans-serif;
+$font-basetica: "Basetica", Helvetica, sans-serif;
+$font-basetica-med: "Basetica-Med", Helvetica, sans-serif;
+$font-silk: "SilkSerif", serif;
+
+$mobile-nav-height: 88px;
+$desktop-nav-height: 185px;
+$desktop-nav-height-undocked: 104px;
+
+$global-padding-small: map-get($grid-margin-gutters, "small") / 2;
+$global-padding-medium: map-get($grid-margin-gutters, "medium") / 2;
+
+$z-index-header: 99;
+$z-index-modal: 100;
+$z-index-router-loader: 1000;
+
+$search-height: 693px;
+$search-padding-top: 260px;
+$search-height-medium: calc(100vh - #{$mobile-nav-height});
+$search-padding-top-medium: 142px;

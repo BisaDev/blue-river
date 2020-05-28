@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "Noah";
+    src: url("#{$font-path}noah-regular-webfont.woff2") format("woff2"),
+        url("#{$font-path}noah-regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Noah";
+    src: url("#{$font-path}noah-bold-webfont.woff2") format("woff2"),
+        url("#{$font-path}noah-bold-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Cormorant";
+    src: url("#{$font-path}cormorant-regular-webfont.woff2") format("woff2"),
+        url("#{$font-path}cormorant-regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Cormorant";
+    src: url("#{$font-path}cormorant-medium-webfont.woff2") format("woff2"),
+        url("#{$font-path}cormorant-medium-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Basetica";
+    src: url("#{$font-path}basetica-med-webfont.woff2") format("woff2"),
+        url("#{$font-path}basetica-med-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Basetica";
+    src: url("#{$font-path}basetica-bold-webfont.woff2") format("woff2"),
+        url("#{$font-path}basetica-bold-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SilkSerif";
+    src: url("#{$font-path}silk_serif_regular-webfont.woff2") format("woff2"),
+        url("#{$font-path}silk_serif_regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SilkSerif";
+    src: url("#{$font-path}silk_serif_regular_italic-webfont.woff2")
+            format("woff2"),
+        url("#{$font-path}silk_serif_regular_italic-webfont.woff")
+            format("woff");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Mitga";
+    src: url("#{$font-path}bwmitga-medium-webfont.woff2") format("woff2"),
+        url("#{$font-path}bwmitga-medium-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}

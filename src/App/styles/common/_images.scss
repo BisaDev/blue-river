@@ -1,0 +1,40 @@
+.background-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &:before {
+        width: 100%;
+        content: "";
+        display: block;
+    }
+}
+
+.bg-pos-right {
+    background-position: top right;
+}
+.bg-pos-center {
+    background-position: top center;
+}
+
+.aspect-1-1 {
+    &:before {
+        padding-top: 100%;
+    }
+}
+.aspect-4-5 {
+    &:before {
+        padding-top: (5 / 4) * 100%;
+    }
+}
+
+.aspect-9-5 {
+    &:before {
+        padding-top: (5 / 9) * 100%;
+    }
+}
+
+.aspect-16-9 {
+    &:before {
+        padding-top: (9 / 16) * 100%;
+    }
+}

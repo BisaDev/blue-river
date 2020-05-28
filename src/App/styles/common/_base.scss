@@ -1,0 +1,119 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+q {
+    display: block;
+
+    &:before {
+        content: "\201C";
+    }
+
+    &:after {
+        content: "\201D";
+    }
+}
+
+body {
+    background-color: $black;
+}
+
+.grid-container.fluid {
+    @include breakpoint(medium) {
+        padding-left: $global-padding-small;
+        padding-right: $global-padding-small;
+    }
+}
+
+.router-loader {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    position: fixed;
+    z-index: $z-index-router-loader;
+    background: $black url("/static/images/route-loader.gif") center no-repeat;
+    background-size: 200px;
+
+    &.active-loader {
+        display: block;
+    }
+}
+
+.skip-navbar {
+    padding-top: $desktop-nav-height;
+    &.podcast-separator {
+        padding-top: 285px;
+    }
+
+    @include breakpoint(medium down) {
+        padding-top: $mobile-nav-height;
+        &.podcast-separator {
+            padding-top: 230px;
+        }
+    }
+}
+
+.placeholder-block {
+    width: 100%;
+    display: block;
+    min-height: 80vh;
+}
+
+$logo-width: 58px;
+
+.logo-compact-blink {
+    font-size: 0;
+    height: 82px;
+    display: block;
+    width: $logo-width;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/static/images/logo-compact-spritesheet.svg");
+
+    &:hover {
+        background-position: -$logo-width * 2;
+        transition: background-position 0.5s steps(2);
+    }
+}
+
+@for $i from 1 through 3 {
+    $step-name: $i + "0";
+    $step-number: $i * 10;
+
+    @each $side in top, bottom, left, right {
+        .margin-#{$side}-#{$step-name} {
+            margin-#{$side}: $step-number + px !important;
+        }
+    }
+    .margin-#{$step-name} {
+        margin: $step-number + px !important;
+    }
+}
+
+*:focus {
+    outline: none;
+}
+
+.no-select {
+    user-select: none;
+}

@@ -5,7 +5,7 @@ module.exports = {
   context: __dirname,
   entry: [
     'react-hot-loader/patch',
-    './src/ClientApp',
+    './src/App',
   ],
   devtool: 'cheap-eval-source-map',
   devServer: {

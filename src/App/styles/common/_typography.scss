@@ -1,0 +1,227 @@
+.h1,
+.h3,
+.h4 {
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: $font-noah;
+}
+
+.h1 {
+    font-size: 70px;
+
+    &.extra-large {
+        line-height: 1;
+        font-size: 100px;
+    }
+
+    &.hero {
+        font-weight: 400;
+        font-family: $font-silk;
+    }
+
+    &.bold {
+        font-weight: 700;
+        font-family: $font-noah;
+    }
+
+    &.banner {
+        font-size: 36px;
+        font-weight: 500;
+        font-family: $font-cormorant;
+    }
+
+    @include breakpoint(medium down) {
+        font-size: 40px;
+
+        &.extra-large {
+            font-size: 60px;
+        }
+
+        &.hero {
+            font-size: 40px;
+        }
+
+        &.banner {
+            font-size: 32px;
+        }
+    }
+}
+
+.h2 {
+    font-size: 50px;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: $font-silk;
+
+    &.large {
+        font-size: 70px;
+    }
+
+    &.bold {
+        font-weight: 700;
+        font-family: $font-noah;
+    }
+
+    @include breakpoint(medium down) {
+        font-size: 40px;
+
+        &.bold {
+            font-size: 32px;
+            font-weight: 700;
+            font-family: $font-noah;
+        }
+
+        &.large {
+            line-height: 1;
+            font-size: 50px;
+        }
+    }
+}
+
+.h3 {
+    font-size: 32px;
+
+    &.bold {
+        font-weight: 700;
+    }
+
+    @include breakpoint(medium down) {
+        font-size: 27px;
+    }
+}
+
+.h4 {
+    font-size: 27px;
+
+    &.bold {
+        font-weight: 700;
+    }
+
+    @include breakpoint(medium down) {
+        font-size: 22px;
+    }
+}
+
+.body {
+    font-size: 16px;
+    line-height: 1.2;
+    font-family: $font-noah;
+
+    &.bold {
+        font-weight: 700;
+    }
+
+    &.xlarge {
+        font-size: 27px;
+    }
+
+    &.large {
+        font-size: 21px;
+        letter-spacing: 0.3px;
+    }
+
+    &.small {
+        font-size: 14px;
+    }
+
+    &.xsmall {
+        font-size: 12px;
+    }
+
+    @include breakpoint(medium down) {
+        &.large,
+        &.xlarge {
+            font-size: 18px;
+        }
+    }
+}
+
+.eyebrow {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.28;
+    letter-spacing: 1.5px;
+    font-family: $font-noah;
+    text-transform: uppercase;
+}
+
+.nav-text {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    font-family: $font-basetica;
+
+    &.bold {
+        font-weight: 700;
+    }
+
+    &.small {
+        font-size: 16px;
+    }
+}
+
+.tab-text {
+    font-size: 36px;
+    font-weight: 500;
+    font-family: $font-cormorant;
+
+    @include breakpoint(medium down) {
+        font-size: 24px;
+    }
+}
+
+.stats {
+    font-size: 70px;
+    font-weight: 500;
+    font-family: $font-basetica;
+
+    &.large {
+        font-size: 140px;
+        font-weight: 400;
+        font-family: $font-silk;
+    }
+}
+
+.list-title {
+    font-size: 30px;
+    font-family: $font-silk;
+}
+
+.text-clay {
+    color: $clay;
+}
+
+.text-gold {
+    color: $gold;
+}
+
+.text-black {
+    color: $black;
+}
+
+.text-peach {
+    color: $peach;
+}
+
+.text-mint {
+    color: $mint;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/** Background Color **/
+.background-yellow {
+    background-color: $yellow;
+}
+
+@include breakpoint(large) {
+    .large-text-left {
+        text-align: left;
+    }
+}
