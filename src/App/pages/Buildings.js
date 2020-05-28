@@ -1,5 +1,6 @@
 import React from 'react';
 import {getCall} from "../../functions/API/buildingCalls";
+import IndexCard from "../components/IndexCard";
 
 class Buildings extends React.Component {
     constructor(props) {
@@ -55,9 +56,7 @@ class Buildings extends React.Component {
         delete groupedData[""];
 
 
-        this.setState({buildingData: groupedData}, () => {
-            //console.log(this.state.buildingData)
-        })
+        this.setState({buildingData: groupedData})
 
     }
 
@@ -73,14 +72,10 @@ class Buildings extends React.Component {
                 <h1 className="title-display">Index</h1>
                 {buildingData ?
                     Object.entries(buildingData).map(([zone, values], i) =>
-                        <div key={`zone-${i}-${zone}`} className="cell index-card">
-                            <h4 className="zone-display">
-                                {zone}
-                            </h4>
-                            <div className="card-item-group">
-                                {values.map(building => <p className="card-item">{building.buildingname}</p>)}
-                            </div>
-                        </div>
+                        <IndexCard
+                            zoneIndex={i}
+                            zoneName={zone}
+                            zoneData={values} />
                     )
 
 
