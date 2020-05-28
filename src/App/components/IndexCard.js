@@ -1,15 +1,15 @@
 import React from 'react';
-import { string, shape,number } from "prop-types"
+import { string, arrayOf,shape } from "prop-types"
 
-const IndexCard = ({zoneName, zoneIndex ,zoneData}) => (
-    <div key={`zone-${zoneIndex}-${zoneName}`} className="cell index-card">
+const IndexCard = ({zoneName ,zoneData}) => (
+    <div className="cell index-card">
         <h4 className="zone-display">
             {zoneName}
         </h4>
         <div className="card-item-group">
-            {zoneData.map( ({buildingname, black}) => black === 0
-                ? <a className="card-item" href="https://applefacilities.review.blueriver.com">{buildingname}</a>
-                : <p className="card-item">{buildingname}</p>
+            {zoneData.map( ({buildingname, black, id}) => black === 0
+                ? <a key={id} className="card-item" href="https://applefacilities.review.blueriver.com">{buildingname}</a>
+                : <p key={id} className="card-item">{buildingname}</p>
 
             )}
         </div>
@@ -18,11 +18,7 @@ const IndexCard = ({zoneName, zoneIndex ,zoneData}) => (
 
 IndexCard.propTypes = {
     zoneName: string.isRequired,
-    zoneIndex: string.isRequired,
-    zoneData: shape({
-        buildingname: string,
-        black: number,
-    })
+    zoneData: arrayOf(shape)
 
 }
 

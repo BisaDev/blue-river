@@ -73,7 +73,7 @@ class Buildings extends React.Component {
                 {buildingData ?
                     Object.entries(buildingData).map(([zone, values], i) =>
                         <IndexCard
-                            zoneIndex={i}
+                            key={`${i}-${zone}`}
                             zoneName={zone}
                             zoneData={values} />
                     )
