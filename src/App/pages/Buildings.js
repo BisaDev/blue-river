@@ -5,15 +5,14 @@ class Buildings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: null
-
+            buildingData: null
         }
 
     }
 
-    processData = () =>  {
-        const buildData = getCall('buildings')
-        buildData.then(data => this.setState({data}))
+    processData = async () => {
+        const buildData = await getCall('buildings')
+        this.setState({buildData})
 
     }
 
@@ -24,13 +23,13 @@ class Buildings extends React.Component {
     }
 
     render() {
-        const { data } = this.state;
+        const { buildingData } = this.state;
 
         return (
             <div className="page-buildings grid-x">
                 <div className="cell">
                     data:
-                    {data
+                    {buildingData
                         ? "Hello"
                         : "Loading"
                     }

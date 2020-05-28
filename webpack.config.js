@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   context: __dirname,
   entry: [
+      '@babel/polyfill',
     'react-hot-loader/patch',
     './src/index',
   ],
