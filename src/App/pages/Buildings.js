@@ -15,20 +15,20 @@ class Buildings extends React.Component {
         let sortedData = [];
         let buildingData = await getCall('buildings')
 
-
-        sortedData = buildingData.items.sort(sortFunction);
-
         //will use "z9-" to artificially send other locations to the bottom
         function sortFunction(a, b) {
-            const zoneA = a['buildingzone'].includes('Other') ? "z9-" + a['buildingzone'].toLowerCase() : a['buildingzone'].toLowerCase();
-            const zoneB = b['buildingzone'].includes('Other') ? "z9-" + a['buildingzone'].toLowerCase() : b['buildingzone'].toLowerCase();
+            const zoneA = a['buildingname'].includes('Other') ? "z9-" + a['buildingname'].toLowerCase() : a['buildingname'].toLowerCase();
+            const zoneB = b['buildingname'].includes('Other') ? "z9-" + a['buildingname'].toLowerCase() : b['buildingname'].toLowerCase();
 
-            if (zoneA === zoneB) {
-                return 0;
-            } else {
-                return (zoneA < zoneB) ? -1 : 1;
-            }
+            return zoneA.localeCompare(zoneB,undefined , {numeric: true, sensitivity: 'base'} )
+
         }
+
+
+
+        sortedData = buildingData.items.sort(sortFunction);
+        console.log(sortedData)
+
 
 
         for (let item of sortedData) {
@@ -46,7 +46,7 @@ class Buildings extends React.Component {
 
 
         this.setState({buildingData: groupedData}, () => {
-            console.log(this.state.buildingData)
+            //console.log(this.state.buildingData)
         })
 
     }
