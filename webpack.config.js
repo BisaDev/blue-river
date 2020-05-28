@@ -1,11 +1,10 @@
 const path = require('path');
 
-
 module.exports = {
   context: __dirname,
   entry: [
     'react-hot-loader/patch',
-    './src/app.scss',
+    './src/index',
   ],
   devtool: 'cheap-eval-source-map',
   devServer: {
