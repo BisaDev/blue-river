@@ -11,15 +11,31 @@ class Buildings extends React.Component {
     }
 
     processData = async () => {
-        const buildData = await getCall('buildings')
-        this.setState({buildData})
+        let processedData= {};
+        const buildingData = await getCall('buildings')
+
+        for( let item of buildingData.items) {
+            let newKey = "";
+            item.buildingzone === "" ? newKey = "z9" : newKey = item.buildingzone.toLowerCase()
+
+            if(processedData[newKey]) {
+                processedData[newKey].push(item)
+            } else {
+                processedData[newKey] = [item]
+            }
+        }
+
+        for( let item in processedData) {
+            console.log(item)
+        }
+
+        //console.log(processedData);
+        this.setState({buildingData: processedData}, ()=> {console.log(this.state.buildingData)} )
 
     }
 
     componentDidMount() {
         this.processData()
-
-
     }
 
     render() {
@@ -28,11 +44,15 @@ class Buildings extends React.Component {
         return (
             <div className="page-buildings grid-x">
                 <div className="cell">
-                    data:
-                    {buildingData
-                        ? "Hello"
-                        : "Loading"
-                    }
+                    {buildingData ?
+                        Object.keys(buildingData).map( section =>
+                                <div>
+                                    {section}
+                                </div>
+                            )
+
+
+                        : "Loading"}
 
                 </div>
             </div>
