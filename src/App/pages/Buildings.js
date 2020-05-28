@@ -11,26 +11,41 @@ class Buildings extends React.Component {
     }
 
     processData = async () => {
-        let processedData= {};
-        const buildingData = await getCall('buildings')
+        let groupedData= {};
+        let sortedData = [];
+        let buildingData = await getCall('buildings')
 
-        for( let item of buildingData.items) {
-            let newKey = "";
-            item.buildingzone === "" ? newKey = "z9" : newKey = item.buildingzone.toLowerCase()
 
-            if(processedData[newKey]) {
-                processedData[newKey].push(item)
-            } else {
-                processedData[newKey] = [item]
+        sortedData = buildingData.items.sort(sortFunction);
+        //will use "z9-" to artificially send other locations to the bottom
+        function sortFunction(a, b) {
+            const zoneA = a['buildingzone'].includes('Other') ?  "z9-" + a['buildingzone'].toLowerCase()  : a['buildingzone'].toLowerCase();
+            const zoneB = b['buildingzone'].includes('Other') ?  "z9-" + a['buildingzone'].toLowerCase()  : b['buildingzone'].toLowerCase();
+
+            if (zoneA === zoneB) {
+                return 0;
+            }
+            else {
+                return (zoneA < zoneB) ? -1 : 1;
             }
         }
 
-        for( let item in processedData) {
-            console.log(item)
+
+        for( let item of sortedData) {
+            const { buildingzone } = item;
+            let newKey = buildingzone.charAt(0).toLowerCase() + buildingzone.slice(1);
+
+            if(groupedData[newKey]) {
+                groupedData[newKey].push(item)
+            } else {
+                groupedData[newKey] = [item]
+            }
         }
 
-        //console.log(processedData);
-        this.setState({buildingData: processedData}, ()=> {console.log(this.state.buildingData)} )
+        delete groupedData[""];
+
+
+        this.setState({buildingData: groupedData}, ()=> {console.log(this.state.buildingData)} )
 
     }
 
@@ -43,19 +58,22 @@ class Buildings extends React.Component {
 
         return (
             <div className="page-buildings grid-x">
-                <div className="cell">
+
                     {buildingData ?
                         Object.keys(buildingData).map( section =>
-                                <div>
+                            <div className="cell building-group">
+                                <div className="zone">
                                     {section}
                                 </div>
+                            </div>
+
                             )
 
 
                         : "Loading"}
 
                 </div>
-            </div>
+
         );
     }
 
