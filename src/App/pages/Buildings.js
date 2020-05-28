@@ -12,11 +12,12 @@ class Buildings extends React.Component {
 
     processData = async () => {
         let groupedData = {};
-        let sortedData = [];
+        let sortedByName = [];
+        let sortedByZone = [];
         let buildingData = await getCall('buildings')
 
         //will use "z9-" to artificially send other locations to the bottom
-        function sortFunction(a, b) {
+        function sortByName(a, b) {
             const zoneA = a['buildingname'].includes('Other') ? "z9-" + a['buildingname'].toLowerCase() : a['buildingname'].toLowerCase();
             const zoneB = b['buildingname'].includes('Other') ? "z9-" + a['buildingname'].toLowerCase() : b['buildingname'].toLowerCase();
 
@@ -24,14 +25,23 @@ class Buildings extends React.Component {
 
         }
 
+        function sortByZone(a, b) {
+            const zoneA = a['buildingzone'].includes('Other') ? "z9-" + a['buildingzone'].toLowerCase() : a['buildingzone'].toLowerCase();
+            const zoneB = b['buildingzone'].includes('Other') ? "z9-" + a['buildingzone'].toLowerCase() : b['buildingzone'].toLowerCase();
+
+            return zoneA.localeCompare(zoneB,undefined , {numeric: true, sensitivity: 'base'} )
+
+        }
 
 
-        sortedData = buildingData.items.sort(sortFunction);
-        console.log(sortedData)
+
+        sortedByName = buildingData.items.sort(sortByName);
+        sortedByZone = sortedByName.sort(sortByZone);
 
 
 
-        for (let item of sortedData) {
+
+        for (let item of sortedByZone) {
             const {buildingzone} = item;
             let newKey = buildingzone.charAt(0).toLowerCase() + buildingzone.slice(1);
 
